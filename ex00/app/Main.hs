@@ -36,8 +36,15 @@ module Main where
     mysquare :: Int -> Int
     mysquare x = x * x
     
+    lstsum :: [Int] -> Int
+    lstsum [] = 0
+    lstsum (x:xs) = x + lstsum xs
+
+    getAverage :: [Int] -> Int
+    getAverage marks = quot (lstsum marks) (length marks)
+    
     main :: IO ()
-    main = print(xxx . jonny $Sunday)
+    main = print . getAverage $[1, 2, 3]
     -- main = print(mysquare 5)
     -- main = print . rev $[1, 2, 3, 4]
     
